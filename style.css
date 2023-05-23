@@ -1,0 +1,26 @@
+.search {
+    display: flex;
+    flex-flow: column;
+    border: 5px;
+    border-style: solid;
+    width: 20%;
+    float: left;
+}
+
+.city {
+    display: flex;
+    flex-flow: column;
+    border: 5px;
+    border-style: solid;
+    width: 75%;
+    margin-left: 21%;
+}
+
+.forecast {
+    display: flex;
+    flex-flow: row;
+    border: 5px;
+    border-style: solid;
+    width: 75%;
+    margin-left: 21%;
+}

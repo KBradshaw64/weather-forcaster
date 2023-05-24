@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Where's the Weather</title>
   <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./index.js">
 </head>
 <body>
     <header>
@@ -13,15 +12,16 @@
     <main>
         <div class="search">
             <h2>Search for your City</h2>
-            <input type="text" class="search-box">
+            <input type="text" class="search-box" id="search-input">
             <button class="search-btn" id="search-btn">Search</button>
             <p class="previous-search"></p>
         </div>
         <div class="city">
-            test 2
+            <p id="current-forecast"></p>
         </div>
         <div class="forecast">
-            tes 3
+            <p id="5-day"></p>
         </div>
     </main>
+    <script src="./index.js"></script>
 </body>

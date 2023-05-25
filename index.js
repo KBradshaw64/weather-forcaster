@@ -27,6 +27,7 @@ function getApi() {
                     currentWind.textContent = "Wind: " + data2.wind.speed + " MPH"
                     currentHum.textContent = "Humidity: " + data2.main.humidity + " %"
                 })
+                //i cant find where it would be printing the future forecasts with console.log(data2)
         });
 }
 

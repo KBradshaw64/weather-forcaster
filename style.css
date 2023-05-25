@@ -2,10 +2,6 @@ header {
     text-align: center;
 }
 
-.forecast-header {
-    text-align: center;
-}
-
 .search {
     display: flex;
     flex-flow: column;
@@ -26,6 +22,7 @@ header {
     background-color: rgb(0, 105, 105);
     font-weight: bold;
     color: aliceblue;
+    border-radius: 15px;
 }
 
 .previous-search {
@@ -39,6 +36,12 @@ header {
     border-style: solid;
     width: 75%;
     margin-left: 21%;
+    font-weight: bold;
+    font-size: large;
+}
+
+.city-text {
+    margin: 5px;
 }
 
 .forecast {
@@ -48,4 +51,5 @@ header {
     border-style: solid;
     width: 75%;
     margin-left: 21%;
+    justify-content: center;
 }

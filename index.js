@@ -3,12 +3,17 @@ var currentTemp = document.getElementById('current-forecast-temp');
 var currentWind = document.getElementById('current-forecast-wind');
 var currentHum = document.getElementById('current-forecast-hum');
 var weekly = document.getElementById('5-day');
+var previousSearch = document.getElementById('previous-search');
+
 
 
 function getApi() {
     var cityName = document.getElementById('search-input')
     var requestUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityName.value + '&limit=3&units=imperial&appid=61b1a371ad3841eac980339ee6ae116f';
-
+    var listSearch = document.createElement('li');
+    localStorage.setItem("cityName", cityName.value);
+    for (var i = 0; i < localStorage.cityName.length; i++)
+        listSearch.textContent = localStorage.cityName[i].value;
     fetch(requestUrl)
         .then(function(response){
             return response.json();
@@ -29,6 +34,8 @@ function getApi() {
                 })
                 //i cant find where it would be printing the future forecasts with console.log(data2)
         });
+    localStorage.getItem('cityName')
+    previousSearch.appendChild(listSearch);    
 }
 
 searchBtn.addEventListener('click', getApi);

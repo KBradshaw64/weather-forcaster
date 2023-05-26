@@ -26,7 +26,7 @@ function getApi() {
                 })
                 .then(function(data2){
                     console.log(data2);
-                    currentTemp.textContent = "It's °" + data2.main.temp + " in " + data2.name + ", " + country + " right now.";
+                    currentTemp.textContent = "It's °" + data2.main.temp + " F in " + data2.name + ", " + country + " right now.";
                     currentWind.textContent = "Wind: " + data2.wind.speed + " MPH";
                     currentHum.textContent = "Humidity: " + data2.main.humidity + " %";
                 })
@@ -50,14 +50,17 @@ function getApi() {
                         var forcWind = document.createElement('p');
                         var forcHum = document.createElement('p');
                         if (i === 3 || i === 11 || i === 19 || i === 27 || i === 35){  
-                            forcTemp.textContent = "It will be °" + data3.list[i].main.temp;
+                            forcTemp.textContent = "°" + data3.list[i].main.temp + "F";
                             forcWind.textContent = "Wind: " + data3.list[i].wind.speed + " MPH";
                             forcHum.textContent = "Humidity: " + data3.list[i].main.humidity + "%";
                             foreCard[foreIndex].append(forcTemp);
+                            //foreCard[foreIndex].innerHTML += '<br>';
                             foreCard[foreIndex].append(forcWind);
                             foreCard[foreIndex].append(forcHum);
                             foreIndex++;
                             //avoids a nested for loop
+                            //having a very difficult time formatting this appended text - can't get it to align as rows in a box for each section
+
 
                         // weekly.child[i].append(forcTemp);
                         // weekly.append(forcWind);

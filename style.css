@@ -55,9 +55,9 @@ header {
 }
 
 .forecast-card {
-    border-style: solid 2px blue;
     display: flex;
     flex-flow: row;
-    width: 200px;
+    text-align: center;
+    width: 300px;
     height: 500px;
 }

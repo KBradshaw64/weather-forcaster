@@ -26,9 +26,9 @@ function getApi() {
                 })
                 .then(function(data2){
                     console.log(data2);
-                    currentTemp.textContent = "It's °" + data2.main.temp + " in " + data2.name + ", " + country + " right now."
-                    currentWind.textContent = "Wind: " + data2.wind.speed + " MPH"
-                    currentHum.textContent = "Humidity: " + data2.main.humidity + " %"
+                    currentTemp.textContent = "It's °" + data2.main.temp + " in " + data2.name + ", " + country + " right now.";
+                    currentWind.textContent = "Wind: " + data2.wind.speed + " MPH";
+                    currentHum.textContent = "Humidity: " + data2.main.humidity + " %";
                 })
             fetch(dataURL2)
                 .then(function(response3){
@@ -37,17 +37,31 @@ function getApi() {
                 .then(function(data3){
                     console.log(data3);
                     //need to create a new div for each day forecasted with <p> elements that print the info pulled from the arrays - noon starts at object[3] and updates in 3 hour blocks so every [8] objects is 24 hours
-                    for (i = 0; i < 35; i++) {
+                    //seperate functions and call them inside of the click even function so it reads cleaner
+                    var foreCard = document.querySelectorAll('.forecast-card');
+                    var foreIndex = 0;
+                    //clears previous data
+                    for (var j = 0; j < foreCard.length; j++){
+                        while (foreCard[j].hasChildNodes()){
+                            foreCard[j].removeChild(foreCard[j].firstChild);
+                    }}
+                    for (var i = 3; i < 35; i++) {
                         var forcTemp = document.createElement('p');
                         var forcWind = document.createElement('p');
                         var forcHum = document.createElement('p');
                         if (i === 3 || i === 11 || i === 19 || i === 27 || i === 35){  
-                        forcTemp.textContent = "It will be °" + data3.list[i].main.temp
-                        forcWind.textContent = "Wind: " + data3.list[i].wind.speed + " MPH"
-                        forcHum.textContent = "Humidity: " + data3.list[i].main.humidity + "%"
-                        weekly.append(forcTemp);
-                        weekly.append(forcWind);
-                        weekly.append(forcHum);
+                            forcTemp.textContent = "It will be °" + data3.list[i].main.temp;
+                            forcWind.textContent = "Wind: " + data3.list[i].wind.speed + " MPH";
+                            forcHum.textContent = "Humidity: " + data3.list[i].main.humidity + "%";
+                            foreCard[foreIndex].append(forcTemp);
+                            foreCard[foreIndex].append(forcWind);
+                            foreCard[foreIndex].append(forcHum);
+                            foreIndex++;
+                            //avoids a nested for loop
+
+                        // weekly.child[i].append(forcTemp);
+                        // weekly.append(forcWind);
+                        // weekly.append(forcHum);
                         //weekly.setAttribute("p",'.forecast-card');
                     }}    
 

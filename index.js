@@ -37,22 +37,32 @@ function getApi() {
                 .then(function(data3){
                     console.log(data3);
                     //need to create a new div for each day forecasted with <p> elements that print the info pulled from the arrays - noon starts at object[3] and updates in 3 hour blocks so every [8] objects is 24 hours
-                    // for (i = 3; i < 35; i+8)
-                        // weekly.appendChild('div')
-                        // weekly.children.setAttribute('.forecast-card')
-
+                    for (i = 0; i < 35; i++) {
+                        var forcTemp = document.createElement('p');
+                        var forcWind = document.createElement('p');
+                        var forcHum = document.createElement('p');
+                        if (i === 3 || i === 11 || i === 19 || i === 27 || i === 35){  
+                        forcTemp.textContent = "It will be °" + data3.list[i].main.temp
+                        forcWind.textContent = "Wind: " + data3.list[i].wind.speed + " MPH"
+                        forcHum.textContent = "Humidity: " + data3.list[i].main.humidity + "%"
+                        weekly.append(forcTemp);
+                        weekly.append(forcWind);
+                        weekly.append(forcHum);
+                        //weekly.setAttribute("p",'.forecast-card');
+                    }}    
 
                 })
-        getLast();
+        //getLast();
         });  
 }
 
 function getLast() {
     var listSearch = document.createElement('li');
     var lastItem = JSON.parse(localStorage.getItem('cityname'));
-    for (var i = 0; i < lastItem; i++)
+    for (var i = 0; i < lastItem; i++) {
         listSearch.textContent = localStorage.cityname[i].value;
         previousSearch.appendChild(listSearch); 
+    }
 }
 
 searchBtn.addEventListener('click', getApi);

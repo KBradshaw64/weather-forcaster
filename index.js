@@ -73,6 +73,8 @@ function getApi() {
         });  
 }
 
+//need to add local storage set and get capabilty as well as a place to print those values as a button that activates the getAPI()
+
 function getLast() {
     var listSearch = document.createElement('li');
     var lastItem = JSON.parse(localStorage.getItem('cityname'));

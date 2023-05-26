@@ -53,3 +53,11 @@ header {
     margin-left: 21%;
     justify-content: center;
 }
+
+.forecast-card {
+    border-style: solid 2px blue;
+    display: flex;
+    flex-flow: row;
+    width: 200px;
+    height: 500px;
+}

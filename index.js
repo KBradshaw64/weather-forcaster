@@ -8,7 +8,7 @@ var cityName = document.getElementById('search-input')
 
 
 function getApi() {
-    var requestUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityName.value + '&limit=3&units=imperial&appid=61b1a371ad3841eac980339ee6ae116f';
+    var requestUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityName.value + '&limit=3&units=imperial&appid=61b1a371ad3841eac980339ee6ae116f';
     //local storage is not working correctly - I'm not sure if it being stored in the wrong place or called in the wrong place or both 
     localStorage.setItem("cityname", JSON.stringify(cityName.value));
     fetch(requestUrl)
